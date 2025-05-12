@@ -29,12 +29,12 @@ describe('throwError', () => {
 
 describe('throwCustomError', () => {
   test('should throw custom error', () => {
-    expect(() => throwCustomError()).toThrowError(customError);
+    expect(() => throwCustomError()).toThrow(customError);
   });
 });
 
 describe('rejectCustomError', () => {
   test('should reject custom error', async () => {
-    expect(rejectCustomError()).rejects.toThrowError(customError);
+    expect(rejectCustomError()).rejects.toThrow(customError);
   });
 });
