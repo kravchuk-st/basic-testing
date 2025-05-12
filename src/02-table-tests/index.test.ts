@@ -1,17 +1,35 @@
-// Uncomment the code below and write your tests
-/* import {  simpleCalculator, Action } from './index';
+import { simpleCalculator, Action } from './index';
 
 const testCases = [
-    { a: 1, b: 2, action: Action.Add, expected: 3 },
-    { a: 2, b: 2, action: Action.Add, expected: 4 },
-    { a: 3, b: 2, action: Action.Add, expected: 5 },
-    // continue cases for other actions    
-]; */
+  { a: 1, b: 3, action: Action.Add, expected: 4 },
+  { a: 2, b: 4, action: Action.Add, expected: 6 },
+  { a: 3, b: 7, action: Action.Add, expected: 10 },
+  { a: 3, b: 2, action: Action.Subtract, expected: 1 },
+  { a: 12, b: 6, action: Action.Subtract, expected: 6 },
+  { a: 8, b: 4, action: Action.Subtract, expected: 4 },
+  { a: 8, b: 2, action: Action.Divide, expected: 4 },
+  { a: 0, b: 5, action: Action.Divide, expected: 0 },
+  { a: 16, b: 8, action: Action.Divide, expected: 2 },
+  { a: 7, b: 3, action: Action.Multiply, expected: 21 },
+  { a: 2, b: 4, action: Action.Multiply, expected: 8 },
+  { a: 6, b: 3, action: Action.Multiply, expected: 18 },
+  { a: 0, b: 2, action: Action.Exponentiate, expected: 0 },
+  { a: 5, b: 2, action: Action.Exponentiate, expected: 25 },
+  { a: 3, b: 4, action: Action.Exponentiate, expected: 81 },
+  { a: 5, b: 2, action: '%', expected: null },
+  { a: 7, b: 3, action: '++', expected: null },
+  { a: 20, b: 8, action: '--', expected: null },
+  { a: '4', b: 5, action: Action.Add, expected: null },
+  { a: false, b: 5, action: Action.Add, expected: null },
+  { a: undefined, b: 2, action: Action.Add, expected: null },
+];
 
 describe('simpleCalculator', () => {
-  // This test case is just to run this test suite, remove it when you write your own tests
-  test('should blah-blah', () => {
-    expect(true).toBe(true);
-  });
-  // Consider to use Jest table tests API to test all cases above
+  test.each(testCases)(
+    'should return correct results',
+    ({ expected, a, action, b }) => {
+      const result = simpleCalculator({ a, b, action });
+      expect(result).toBe(expected);
+    },
+  );
 });
